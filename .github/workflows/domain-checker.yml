@@ -8,10 +8,13 @@ on:
 env:
   FILE_PATH: eklenti_domainleri.txt
   BRANCH: main
+  TZ: Europe/Istanbul  # Türkiye saat dilimi için bu satırı ekleyin
 
 jobs:
   domain-kontrolu:
     runs-on: ubuntu-latest
+    env:
+      TZ: Europe/Istanbul  # Ekstra güvenlik için burada da tanımlayabilirsiniz
 
     steps:
       - name: Depoyu klonla (tam geçmiş)
@@ -128,6 +131,7 @@ jobs:
         env:
           BRANCH: ${{ env.BRANCH }}
           REPO: ${{ github.repository }}
+          TZ: Europe/Istanbul  # Türkiye saat dilimi
         run: |
           set -e
 
@@ -162,7 +166,9 @@ jobs:
             exit 0
           fi
 
-          COMMIT_MSG="🔄 Domain güncellemesi - $(date +'%Y-%m-%d %H:%M')"
+          # Tarihi Türkiye saatiyle al
+          CURRENT_TIME=$(date +'%Y-%m-%d %H:%M')
+          COMMIT_MSG="🔄 Domain güncellemesi - $CURRENT_TIME"
           git commit -m "$COMMIT_MSG" || {
             echo "Commit atılırken hata."
             git status
@@ -177,4 +183,3 @@ jobs:
           }
 
           echo "✓ Değişiklikler başarıyla push edildi"
-
