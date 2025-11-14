@@ -2,13 +2,12 @@ name: Domain Kontrol ve Güncelleme
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Her 6 saatte bir çalışır (daha az sıklıkta)
+    - cron: '0 * * * *'  # Her saat başı çalışır
   workflow_dispatch:  # Manuel tetikleme için
 
 jobs:
   domain-kontrolu:
     runs-on: ubuntu-latest
-    timeout-minutes: 15  # Maksimum 15 dakika
 
     steps:
       - name: Depoyu klonla
@@ -26,82 +25,37 @@ jobs:
           pip install requests
 
       - name: Domainleri kontrol et ve güncelle
-        env:
-          PROXY_HOST: "176.235.182.90"
-          PROXY_PORT: "1080"
         run: |
           python - <<'EOF'
           import re
           import requests
-          import os
           from urllib.parse import urlparse
-          from concurrent.futures import ThreadPoolExecutor, as_completed
-          import time
 
-          def get_final_url(url, timeout=8):
+          def get_final_url(url, timeout=10):
               """URL'nin son redirect edilen halini döndürür"""
               try:
+                  # Temizle
                   url = url.strip().rstrip('/')
           
-                  # Proxy ayarları - opsiyonel
-                  proxy_host = os.getenv('PROXY_HOST')
-                  proxy_port = os.getenv('PROXY_PORT')
+                  response = requests.get(
+                      url, 
+                      allow_redirects=True, 
+                      timeout=timeout,
+                      headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+                  )
           
-                  proxies = None
-                  if proxy_host and proxy_port:
-                      proxy_url = f"http://{proxy_host}:{proxy_port}"
-                      proxies = {
-                          'http': proxy_url,
-                          'https': proxy_url
-                      }
+                  final_url = response.url.rstrip('/')
           
-                  # Önce proxy olmadan dene
-                  try:
-                      response = requests.get(
-                          url, 
-                          allow_redirects=True, 
-                          timeout=timeout,
-                          proxies=None,  # Önce proxy'siz
-                          headers={
-                              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                              'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-                          },
-                          verify=True
-                      )
+                  # Parse et ve temiz hale getir
+                  parsed = urlparse(final_url)
           
-                      final_url = response.url.rstrip('/')
-                      parsed = urlparse(final_url)
-                      clean_url = f"{parsed.scheme}://{parsed.netloc}"
+                  # Sadece domain ve scheme'i al, path'i temizle
+                  clean_url = f"{parsed.scheme}://{parsed.netloc}"
           
-                      return clean_url
-          
-                  except Exception as e1:
-                      # Proxy ile tekrar dene
-                      if proxies:
-                          try:
-                              response = requests.get(
-                                  url, 
-                                  allow_redirects=True, 
-                                  timeout=timeout,
-                                  proxies=proxies,
-                                  headers={
-                                      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                                      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-                                  },
-                                  verify=True
-                              )
-          
-                              final_url = response.url.rstrip('/')
-                              parsed = urlparse(final_url)
-                              clean_url = f"{parsed.scheme}://{parsed.netloc}"
-          
-                              return clean_url
-                          except:
-                              pass
-          
-                      raise e1
+                  return clean_url
           
               except Exception as e:
+                  print(f"Hata ({url}): {str(e)}")
                   return None
 
           def parse_line(line):
@@ -113,89 +67,61 @@ jobs:
                   return name, url
               return None, None
 
-          def check_domain(name, url):
-              """Tek bir domain'i kontrol eder"""
-              print(f"Kontrol ediliyor: {name} ({url})")
-          
-              final_url = get_final_url(url)
-          
-              if final_url and final_url != url:
-                  print(f"  ✓ {name}: {url} → {final_url}")
-                  return name, url, final_url, True
-              elif final_url:
-                  print(f"  → {name}: Değişiklik yok")
-                  return name, url, url, False
-              else:
-                  print(f"  ✗ {name}: Erişilemedi")
-                  return name, url, url, False
+          def format_line(name, url):
+              """Satırı formatlar"""
+              return f"|{name}:{url}"
 
+          # Dosyayı oku
           file_path = 'eklenti_domainleri.txt'
           
           try:
               with open(file_path, 'r', encoding='utf-8') as f:
-                  content = f.read()
+                  lines = f.readlines()
           except FileNotFoundError:
               print(f"Dosya bulunamadı: {file_path}")
               exit(1)
 
-          original_content = content
+          updated_lines = []
           changes_made = False
-          updates = {}
 
           print("Domain kontrolleri başlıyor...\n")
 
-          lines = content.split('\n')
-          domains_to_check = []
-          
-          # Kontrol edilecek domainleri topla
           for line in lines:
-              if not line.strip() or not line.strip().startswith('|'):
+              line = line.strip()
+          
+              if not line or not line.startswith('|'):
+                  updated_lines.append(line)
                   continue
           
-              name, url = parse_line(line)
-              if name and url:
-                  domains_to_check.append((name, url))
-
-          # Paralel kontrol (max 5 eşzamanlı)
-          with ThreadPoolExecutor(max_workers=5) as executor:
-              future_to_domain = {
-                  executor.submit(check_domain, name, url): (name, url) 
-                  for name, url in domains_to_check
-              }
+              name, original_url = parse_line(line)
           
-              for future in as_completed(future_to_domain):
-                  name, old_url, new_url, changed = future.result()
-                  if changed:
-                      updates[old_url] = new_url
-                      changes_made = True
+              if not name or not original_url:
+                  updated_lines.append(line)
+                  continue
+          
+              print(f"Kontrol ediliyor: {name}")
+              print(f"  Mevcut URL: {original_url}")
+          
+              final_url = get_final_url(original_url)
+          
+              if final_url and final_url != original_url:
+                  print(f"  ✓ Yeni URL: {final_url}")
+                  updated_lines.append(format_line(name, final_url))
+                  changes_made = True
+              else:
+                  if final_url:
+                      print(f"  → Değişiklik yok")
+                  else:
+                      print(f"  ✗ Erişilemedi, mevcut URL korunuyor")
+                  updated_lines.append(format_line(name, original_url))
+          
+              print()
 
-          print(f"\n{'='*50}")
-          print(f"Toplam kontrol edilen: {len(domains_to_check)}")
-          print(f"Güncelleme gereken: {len(updates)}")
-          print(f"{'='*50}\n")
-
-          # Güncellemeleri uygula
+          # Dosyayı güncelle
           if changes_made:
-              for old_url, new_url in updates.items():
-                  # Satır satır değiştir
-                  lines = content.split('\n')
-                  for i, line in enumerate(lines):
-                      if old_url in line:
-                          name, _ = parse_line(line)
-                          if name:
-                              lines[i] = f"|{name}:{new_url}"
-                  content = '\n'.join(lines)
-
-          # Dosyayı sadece değişiklik varsa güncelle
-          if changes_made and content != original_content:
               with open(file_path, 'w', encoding='utf-8') as f:
-                  f.write(content)
+                  f.write('\n'.join(updated_lines) + '\n')
               print("✓ Dosya güncellendi!")
-          
-              # Güncellenen domainleri listele
-              print("\nGüncellenen domainler:")
-              for old_url, new_url in updates.items():
-                  print(f"  {old_url} → {new_url}")
           else:
               print("→ Güncelleme gerekmedi.")
 
@@ -211,8 +137,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "Değişiklik yok, commit atlanıyor"
           else
-            git pull --rebase origin main || git pull origin main
-            git commit -m "🔄 Domain güncellemesi - $(date +'%Y-%m-%d %H:%M UTC')"
+            git commit -m "🔄 Domain güncellemesi - $(date +'%Y-%m-%d %H:%M')"
             git push
             echo "✓ Değişiklikler push edildi"
           fi
