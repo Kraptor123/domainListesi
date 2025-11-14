@@ -131,6 +131,26 @@ jobs:
         run: |
           set -e
 
+          # Önce mevcut değişikleri stash'leyelim (varsa)
+          if ! git diff --exit-code --quiet; then
+            git stash push -m "temp-changes" || true
+          fi
+
+          # Remote değişiklikleri alalım
+          git fetch origin $BRANCH --prune
+          git pull --rebase origin $BRANCH || {
+            echo "git pull --rebase sırasında hata oluştu."
+            git rebase --abort || true
+            # Stash'lenmiş değişiklikleri geri alalım
+            git stash pop || true
+            exit 1
+          }
+
+          # Stash'lenmiş değişiklikleri geri alalım
+          if git stash list | grep -q "temp-changes"; then
+            git stash pop || true
+          fi
+
           git config user.name 'Domain Kontrol Botu'
           git config user.email 'bot@github-actions'
 
@@ -142,14 +162,6 @@ jobs:
             exit 0
           fi
 
-          # Rebase ile remote üzerindeki en yeni main'i al ve local commit'leri onun üstüne koy
-          git fetch origin $BRANCH --prune
-          git pull --rebase origin $BRANCH || {
-            echo "git pull --rebase sırasında hata oluştu. Muhtemel çatışma. İşlem iptal ediliyor."
-            git rebase --abort || true
-            exit 1
-          }
-
           COMMIT_MSG="🔄 Domain güncellemesi - $(date +'%Y-%m-%d %H:%M')"
           git commit -m "$COMMIT_MSG" || {
             echo "Commit atılırken hata."
@@ -157,13 +169,12 @@ jobs:
             exit 1
           }
 
-          # Push yap (PAT ile kimlik doğrulama)
-          echo "Pushing changes..."
+          # Push yap
           git push "https://${{ secrets.PAT_TOKEN }}@github.com/${REPO}.git" HEAD:$BRANCH || {
-            echo "Push başarısız oldu. Remote'da yeni commit olabilir. İşlem iptal."
+            echo "Push başarısız oldu."
             git log --oneline -n 5
             exit 1
           }
 
-          echo "✓ Değişiklikler push edildi"
+          echo "✓ Değişiklikler başarıyla push edildi"
 
