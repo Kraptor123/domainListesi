@@ -3,25 +3,19 @@ name: Domain Kontrol ve Güncelleme
 on:
   schedule:
     - cron: '0/45 * * * *'
-  workflow_dispatch:  # Manuel tetikleme için
+  workflow_dispatch:
 
 env:
   FILE_PATH: eklenti_domainleri.txt
-  BRANCH: main
-  TZ: Europe/Istanbul  # Türkiye saat dilimi için bu satırı ekleyin
+  TZ: Europe/Istanbul
 
 jobs:
   domain-kontrolu:
     runs-on: ubuntu-latest
-    env:
-      TZ: Europe/Istanbul  # Ekstra güvenlik için burada da tanımlayabilirsiniz
 
     steps:
-      - name: Depoyu klonla (tam geçmiş)
+      - name: Depoyu klonla
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          fetch-depth: 0
 
       - name: Python kurulumu
         uses: actions/setup-python@v4
@@ -87,7 +81,7 @@ jobs:
 
           print("Domain kontrolleri başlıyor...\n")
 
-          lines = content.splitlines() 
+          lines = content.splitlines()
           
           for i, line in enumerate(lines):
               if not line.strip() or not line.strip().startswith('|'):
@@ -127,59 +121,18 @@ jobs:
 
           EOF
 
-      - name: Değişiklikleri kaydet ve yükle
-        env:
-          BRANCH: ${{ env.BRANCH }}
-          REPO: ${{ github.repository }}
-          TZ: Europe/Istanbul  # Türkiye saat dilimi
+      - name: Değişiklikleri kaydet
         run: |
-          set -e
-
-          # Önce mevcut değişikleri stash'leyelim (varsa)
-          if ! git diff --exit-code --quiet; then
-            git stash push -m "temp-changes" || true
-          fi
-
-          # Remote değişiklikleri alalım
-          git fetch origin $BRANCH --prune
-          git pull --rebase origin $BRANCH || {
-            echo "git pull --rebase sırasında hata oluştu."
-            git rebase --abort || true
-            # Stash'lenmiş değişiklikleri geri alalım
-            git stash pop || true
-            exit 1
-          }
-
-          # Stash'lenmiş değişiklikleri geri alalım
-          if git stash list | grep -q "temp-changes"; then
-            git stash pop || true
-          fi
-
           git config user.name 'Domain Kontrol Botu'
           git config user.email 'bot@github-actions'
+          
+          git add ${{ env.FILE_PATH }}
 
-          git add $FILE_PATH || true
-
-          # Eğer staged değişiklik yoksa çık
           if git diff --staged --quiet; then
             echo "Değişiklik yok, commit atlanıyor"
             exit 0
           fi
 
-          # Tarihi Türkiye saatiyle al
           CURRENT_TIME=$(date +'%Y-%m-%d %H:%M')
-          COMMIT_MSG="🔄 Domain güncellemesi - $CURRENT_TIME"
-          git commit -m "$COMMIT_MSG" || {
-            echo "Commit atılırken hata."
-            git status
-            exit 1
-          }
-
-          # Push yap
-          git push "https://${{ secrets.PAT_TOKEN }}@github.com/${REPO}.git" HEAD:$BRANCH || {
-            echo "Push başarısız oldu."
-            git log --oneline -n 5
-            exit 1
-          }
-
-          echo "✓ Değişiklikler başarıyla push edildi"
+          git commit -m "🔄 Domain güncellemesi - $CURRENT_TIME"
+          git push
