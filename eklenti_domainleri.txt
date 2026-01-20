@@ -3,7 +3,7 @@
 |DiziMag:https://dizimag.nl
 |DiziMom:https://www.dizimom.one
 |DiziPal:https://dizipal1225.com
-|DiziPalOrijinal:https://dizipal1533.com
+|DiziPalOrijinal:https://dizipal1534.com
 |DiziYo:https://diziyo.sh
 |FilmModu:https://www.filmmodu.ws
 |RoketDizi:https://flatscher.net
@@ -26,4 +26,4 @@
 |4kHdHub:https://4khdhub.dad
 |VegaMovies:https://vegamovies.gt
 |MoviesMod:https://moviesmod.kids
-|HDFilmCehennemi:https://www.hdfilmcehennemi.ws
+|HDFilmCehennemi:https://www.hdfilmcehennemi.nl
