@@ -78,7 +78,7 @@
 |Trt1:https://www.trt1.com.tr
 |TrtCocuk:https://www.trtcocuk.net.tr
 |Tv8:https://www.tv8.com.tr
-|WebteIzle:https://webteizle.info
+|WebteIzle:https://webteizle3.xyz
 |TvDiziler:https://tvdiziler.tv
 |YabanciDizi:https://yabancidizi.so
 |YeniKaynak:https://www.yenikaynak.com
