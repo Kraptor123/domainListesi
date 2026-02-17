@@ -53,7 +53,7 @@
 |FilmMakinesi:https://filmmakinesi.to
 |Filmzal:https://filmzal.me
 |FlixHQ:https://flixhq.to
-|FullHDFilmizlesene:https://www.fullhdfilmizlesene.tv
+|FullHDFilmizlesene:https://www.fullhdfilmizlesene.live
 |FullHDIzle:https://fullhdizle.one
 |GinikoCanli:https://www.giniko.com
 |HintDizi:https://hintdizi.com
