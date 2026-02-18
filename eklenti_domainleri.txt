@@ -24,7 +24,7 @@
 |HDHUB4u:https://new3.hdhub4u.fo
 |4kHdHub:https://4khdhub.dad
 |VegaMovies:https://vegamovies.cologne
-|MoviesMod:https://moviesmod.kids
+|MoviesMod:https://moviesmod.town
 |HDFilmCehennemi:https://www.hdfilmcehennemi.nl
 |Jetfilmizle:https://jetfilmizle.net
 |AsyaKing:https://www.asyaking.pro
@@ -92,3 +92,9 @@
 |Netmirror:https://net22.cc
 |Dismirror:https://net52.cc
 |Primemirror:https://net52.cc
+|HubCloud:https://hubcloud.foo
+|VegaMovies:https://vegamovies.cologne
+|uhdmovies:https://uhdmovies.loan
+
+
+
