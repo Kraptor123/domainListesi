@@ -85,6 +85,7 @@
 |VegaMovies:https://vegamovies.cologne
 |uhdmovies:https://uhdmovies.ink
 |DizifilmORG:https://dizifilm.org
+|HDFilmizle:https://hdfilmizle.life
 
 
 
