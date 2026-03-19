@@ -36,7 +36,6 @@
 |DiziBox:https://www.dizibox.live
 |DiziKorea:https://dizikorea3.com
 |DiziLife:https://dizi47.life
-|DiziWatch:https://diziwatch.to
 |DiziYou:https://www.diziyou.one
 |DMax:https://www.dmax.com.tr
 |FilmEkseni:https://filmekseni.cc
@@ -71,7 +70,6 @@
 |TvDiziler:https://tvdiziler.tv
 |YabanciDizi:https://yabancidizi.so
 |YeniKaynak:https://www.yenikaynak.com
-|YeniWatch:https://yeniwatch.net.tr
 |YesilCamTv:https://yesilcamtv.com.tr
 |YTS:https://yts.bz
 |Turkanime:https://www.turkanime.tv
