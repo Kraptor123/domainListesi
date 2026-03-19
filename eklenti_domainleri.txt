@@ -71,7 +71,7 @@
 |YabanciDizi:https://yabancidizi.so
 |YeniKaynak:https://www.yenikaynak.com
 |YesilCamTv:https://yesilcamtv.com.tr
-|YTS:https://yts.bz
+|YTS:https://yts.si
 |Turkanime:https://www.turkanime.tv
 |WebDramaTurkey:https://webdramaturkey2.com
 |Watch2Movies:https://watch2movies.net
