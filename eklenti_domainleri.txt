@@ -35,7 +35,7 @@
 |DiziAsya:https://api.diziasya.com
 |DiziBox:https://www.dizibox.live
 |DiziKorea:https://dizikorea3.com
-|DiziLife:https://dizi47.life
+|DiziLife:https://dizi48.life
 |DiziYou:https://www.diziyou.one
 |DMax:https://www.dmax.com.tr
 |FilmEkseni:https://filmekseni.cc
