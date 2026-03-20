@@ -83,7 +83,7 @@
 |VegaMovies:https://vegamovies.vodka
 |uhdmovies:https://uhdmovies.ink
 |DizifilmORG:https://dizifilm.org
-|HDFilmizle:https://hdfilmizle.life
+|HDFilmizle:https://www.hdfilmizle.nl
 
 
 
