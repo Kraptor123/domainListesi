@@ -87,13 +87,13 @@
 |YTSYedek:https://en.yts.si
 |MultiEmbedAPI:https://multiembed.mov
 |vidsrctoAPI:https://vidsrc.cc
-|Vidsrcxyz:https://vidsrc-embed.su
+|Vidsrcxyz:https://vsembed.ru
 |Watch32:https://watch32.sx
 |movieBox:https://api.inmoviebox.com
 |vidrock:https://vidrock.net
 |vidlink:https://vidlink.pro
 |vidfastProApi:https://vidfast.pro
-|vidPlusApi:https://player.vidplus.to
+|vidPlusApi:https://player.vidplus.pro
 |Videasy:https://api.videasy.net
 
 
