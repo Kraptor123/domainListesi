@@ -39,7 +39,7 @@
 |DiziYou:https://www.diziyou.one
 |DMax:https://www.dmax.com.tr
 |FilmEkseni:https://filmekseni.cc
-|FilmHane:https://filmhane.art
+|FilmHane:https://filmhane.fit
 |FilmMakinesi:https://filmmakinesi.to
 |Filmzal:https://filmzal.me
 |FlixHQ:https://flixhq.to
