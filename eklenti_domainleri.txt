@@ -89,7 +89,7 @@
 |vidsrctoAPI:https://vidsrc.cc
 |Vidsrcxyz:https://vsembed.ru
 |Watch32:https://watch32.sx
-|movieBox:https://api.inmoviebox.com
+|movieBox:https://themoviebox.org
 |vidrock:https://vidrock.net
 |vidlink:https://vidlink.pro
 |vidfastProApi:https://vidfast.pro
