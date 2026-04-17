@@ -68,7 +68,7 @@
 |Tv8:https://www.tv8.com.tr
 |WebteIzle:https://webteizle3.xyz
 |TvDiziler:https://tvdiziler.tv
-|YabanciDizi:https://yabancidizi.so
+|YabanciDizi:https://yabancidizi.life
 |YeniKaynak:https://www.yenikaynak.com
 |YesilCamTv:https://yesilcamtv.com.tr
 |YTS:https://yts.bz
