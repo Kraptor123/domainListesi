@@ -84,7 +84,7 @@
 |uhdmovies:https://uhdmovies.ink
 |DizifilmORG:https://dizifilm.org
 |HDFilmizle:https://www.hdfilmizle.so
-|YTSYedek:https://en.yts.si
+|YTSYedek:https://yts.lu
 |MultiEmbedAPI:https://multiembed.mov
 |vidsrctoAPI:https://vidsrc.cc
 |Vidsrcxyz:https://vsembed.ru
