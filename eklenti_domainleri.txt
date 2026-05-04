@@ -35,7 +35,7 @@
 |DiziAsya:https://api.diziasya.com
 |DiziBox:https://www.dizibox.live
 |DiziKorea:https://dizikorea3.com
-|DiziLife:https://dizi58.life
+|DiziLife:https://dizi59.life
 |DiziYou:https://www.diziyou.one
 |DMax:https://www.dmax.com.tr
 |FilmEkseni:https://filmekseni.cc
@@ -43,7 +43,7 @@
 |FilmMakinesi:https://filmmakinesi.to
 |Filmzal:https://filmzal.me
 |FlixHQ:https://flixhq.to
-|FullHDFilmizlesene:https://www.fullhdfilmizlesene.live
+|FullHDFilmizlesene:https://www.fullhdfilmizlesene.life
 |GinikoCanli:https://www.giniko.com
 |HintDizi:https://hintdizi.com
 |KanalD:https://www.kanald.com.tr
