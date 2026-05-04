@@ -83,7 +83,7 @@
 |VegaMovies:https://vegamovies.market
 |uhdmovies:https://uhdmovies.pink
 |DizifilmORG:https://dizifilm.org
-|HDFilmizle:https://www.hdfilmizle.so
+|HDFilmizle:https://www.hdfilmizle.sh
 |YTSYedek:https://en.yts.lu
 |MultiEmbedAPI:https://multiembed.mov
 |vidsrctoAPI:https://vidsrc.cc
