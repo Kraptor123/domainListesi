@@ -95,6 +95,6 @@
 |vidfastProApi:https://vidfast.pro
 |vidPlusApi:https://player2.vidplus.pro
 |Videasy:https://api.videasy.net
-|WFilmizle:https://www.wfilmizle.nl
+|WFilmizle:https://www.wfilmizle.pw
 
 
