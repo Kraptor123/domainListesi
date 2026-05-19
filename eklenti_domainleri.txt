@@ -90,7 +90,7 @@
 |Vidsrcxyz:https://vsembed.ru
 |Watch32:https://watch32.sx
 |movieBox:https://themoviebox.org
-|vidrock:https://vidrock.net
+|vidrock:https://vidrock.ru
 |vidlink:https://vidlink.pro
 |vidfastProApi:https://vidfast.pro
 |vidPlusApi:https://player2.vidplus.pro
