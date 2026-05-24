@@ -55,7 +55,7 @@
 |OpenAnime:https://openani.me
 |RareFilmm:https://rarefilmm.com
 |SeiCode:https://seicode.net
-|SelcukFlix:https://selcukflix.net
+|SelcukFlix:https://selcukflix.co
 |SetFilmIzle:https://www.setfilmizle.uk
 |ShowTv:https://www.showtv.com.tr
 |StarTv:https://www.startv.com.tr
