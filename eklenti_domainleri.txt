@@ -14,10 +14,8 @@
 |Animely:https://animecim.tv
 |Animeler:https://animeler.pw
 |Anizium:https://api.anizium.co
-|Anizm:https://anizm.net
 |Asyaanimeleri:https://asyaanimeleri.top
 |Asyafanatiklerim:https://asyafanatiklerim.com
-|Asyafilmizlesene:https://asyafilmizlesene.org
 |HDHUB4u:https://new6.hdhub4u.fo
 |4kHdHub:https://4khdhub.dad
 |VegaMovies:https://vegamovies.mq
@@ -42,10 +40,8 @@
 |FilmHane:https://www.filmhane.ink
 |FilmMakinesi:https://filmmakinesi.to
 |Filmzal:https://filmzal.me
-|FlixHQ:https://flixhq.to
 |FullHDFilmizlesene:https://www.fullhdfilmizlesene.life
 |GinikoCanli:https://www.giniko.com
-|HintDizi:https://hintdizi.com
 |KanalD:https://www.kanald.com.tr
 |Kick:https://kick.com
 |KoreanTurk:https://www.koreanturk.net
