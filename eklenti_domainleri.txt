@@ -92,5 +92,6 @@
 |vidPlusApi:https://player2.vidplus.pro
 |Videasy:https://api.videasy.net
 |WFilmizle:https://www.wfilmizle.pw
+|DiziGecesi:https://Dizigecesi.com
 
 
