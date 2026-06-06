@@ -74,7 +74,7 @@
 |HDFilmDelisi:https://hdfilmdelisi.one
 |Netmirror:https://net11.cc
 |Dismirror:https://net11.cc
-|Primemirror:https://net11.cc
+|Primemirror:https://net52.cc
 |HubCloud:https://hubcloud.foo
 |VegaMovies:https://vegamovies.mq
 |uhdmovies:https://gamesleech.com
