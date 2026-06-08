@@ -21,7 +21,7 @@
 |VegaMovies:https://vegamovies.mq
 |MoviesMod:https://moviesmod.farm
 |HDFilmCehennemi:https://www.hdfilmcehennemi.nl
-|Jetfilmizle:https://jetfilmizle.net
+|Jetfilmizle:https://jetfilmizle.now
 |AsyaMinik:https://asyaminik.com
 |AsyaWatch:https://asyawatch.com
 |Atv:https://www.atv.com.tr
