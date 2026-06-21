@@ -93,5 +93,6 @@
 |Videasy:https://api.videasy.net
 |WFilmizle:https://www.wfilmizle.pw
 |DiziGecesi:https://dizigecesi.com
+|SSRMovies:https://ssrmovies.ch
 
 
