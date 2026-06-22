@@ -50,7 +50,7 @@
 |OnePaceTr:https://www.onepacetr.net
 |OpenAnime:https://openani.me
 |RareFilmm:https://rarefilmm.com
-|SeiCode:https://seicode.net
+|SeiCode:https://seiwatch.net
 |SelcukFlix:https://selcukflix.co
 |SetFilmIzle:https://www.setfilmizle.uk
 |ShowTv:https://www.showtv.com.tr
