@@ -75,7 +75,7 @@
 |Netmirror:https://net11.cc
 |Dismirror:https://net11.cc
 |Primemirror:https://net11.cc
-|HubCloud:https://hubcloud.foo
+|HubCloud:https://hubcloud.cx
 |VegaMovies:https://vegamovies.navy
 |uhdmovies:https://gamesleech.com
 |DizifilmORG:https://dizifilm.org
