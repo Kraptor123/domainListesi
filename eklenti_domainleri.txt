@@ -88,7 +88,7 @@
 |movieBox:https://themoviebox.org
 |vidrock:https://vidrock.ru
 |vidlink:https://vidlink.pro
-|vidfastProApi:https://vidfast.pro
+|vidfastProApi:https://vidfast.vc
 |vidPlusApi:https://player2.vidplus.pro
 |Videasy:https://api.videasy.net
 |WFilmizle:https://www.wfilmizle.pw
