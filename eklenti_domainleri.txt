@@ -94,5 +94,6 @@
 |WFilmizle:https://www.wfilmizle.pw
 |DiziGecesi:https://dizigecesi.com
 |SSRMovies:https://ssrmovies.archi
+|AnimPow:https://animpow.com
 
 
