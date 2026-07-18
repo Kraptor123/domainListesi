@@ -33,7 +33,7 @@
 |FilmMakinesi:https://filmmakinesi.to
 |FilmModu:https://www.filmmodu.one
 |Filmzal:https://filmzal.me
-|FullHDFilmizlesene:https://www.fullhdfilmizlesene.biz
+|FullHDFilmizlesene:https://www.fullhdfilmizlesene.nz
 |GinikoCanli:https://www.giniko.com
 |HDFilmCehennemi:https://www.hdfilmcehennemi.nl
 |HDFilmDelisi:https://hdfilmdelisi.one
