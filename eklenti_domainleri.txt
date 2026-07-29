@@ -56,7 +56,7 @@
 |ShowTv:https://www.showtv.com.tr
 |SinemaCX:https://www.sinema.gg
 |Sinezy:https://sinezy.to
-|SSRMovies:https://ssrmovies.luxe
+|SSRMovies:https://ssrmovies.faith
 |StarTv:https://www.startv.com.tr
 |Teve2:https://www.tv2.com.tr
 |TLC:https://www.tlctv.com.tr
