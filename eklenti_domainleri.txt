@@ -52,7 +52,7 @@
 |SeiCode:https://seiwatch.net
 |SelcukFlix:https://selcukflix.co
 |SezonlukDizi:https://sezonlukdizi.cc
-|SetFilmIzle:https://www.setfilmizle.uk
+|SetFilmIzle:https://www.setfilmizle.ltd
 |ShowTv:https://www.showtv.com.tr
 |SinemaCX:https://www.sinema.gg
 |Sinezy:https://sinezy.to
